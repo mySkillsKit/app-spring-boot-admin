@@ -1,0 +1,52 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    configprops:
+      show-values: ALWAYS
+    env:
+      show-values: ALWAYS
+      post:
+        enabled: true
+  info:
+    env:
+      enabled: true
+spring:
+  application:
+    name: second-microservice
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:8060
+        username: admin
+        password: Z9qxg*tN3HD
+        instance:
+          name: second-microservice
+          service-host-type: ip
+        enabled: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  docker:
+    compose:
+      enabled: false
+
+info:
+  sources: https://github.com
+logging:
+  file:
+    name: logs/second-microservice.log
+server:
+  port: 8082

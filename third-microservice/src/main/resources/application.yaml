@@ -1,0 +1,42 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    configprops:
+      show-values: ALWAYS
+    env:
+      show-values: ALWAYS
+      post:
+        enabled: true
+  info:
+    env:
+      enabled: true
+spring:
+  cache:
+    caffeine:
+      spec: maximumSize=500,expireAfterAccess=600s
+    cache-names: hello
+  application:
+    name: third-microservice
+  boot:
+    admin:
+      client:
+        url: http://localhost:8060
+        username: admin
+        password: Z9qxg*tN3HD
+        instance:
+          name: third-microservice
+          service-host-type: ip
+        enabled: true
+info:
+  sources: https://github.com
+logging:
+  file:
+    name: logs/third-microservice.log
+server:
+  port: 8083
+
+greeting:
+  message: Hello, Developer!

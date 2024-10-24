@@ -1,0 +1,5 @@
+rootProject.name = 'app-spring-boot-admin-server'
+include 'spring-boot-admin-server'
+include 'first-microservice'
+include 'second-microservice'
+include 'third-microservice'
