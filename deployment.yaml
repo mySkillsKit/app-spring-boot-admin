@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: admin-server-deploy
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: admin-server-deploy
+  template:
+    metadata:
+      labels:
+        app: admin-server-deploy
+    spec:
+      containers:
+      - name: admin-server-deploy
+        image: myskillskit/admin-server:1.0.0
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "1000m"
+        ports:
+        - containerPort: 8060
