@@ -28,7 +28,7 @@ spring:
         password: Z9qxg*tN3HD
         instance:
           name: first-microservice
-          service-host-type: ip
+          service-base-url: http://localhost:8081
         enabled: true
 info:
   sources: https://github.com

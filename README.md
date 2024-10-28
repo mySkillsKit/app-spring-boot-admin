@@ -129,8 +129,11 @@ kubectl logs admin-server-deploy-66c597f59d-hpjcd
 kubectl apply -f deployment.yaml
 kubectl logs admin-server-deploy-66c597f59d-hpjcd
 ```
+
 ## Create service.yaml
+
 /Users/avas/IdeaProjects/app-spring-boot-admin/service.yaml
+
 ```angular2html
 //open tunnel
 minikube tunnel
@@ -141,15 +144,17 @@ kubectl describe svc admin-server-deploy
 http://localhost:9060
 
 ```
-### minikube dashboard 
+
+### minikube dashboard
+
 ```angular2html
 minikube dashboard
 
 ```
+
 ```angular2html
 kubectl delete -f deployment.yaml -f service.yaml
 ```
-
 
 ### Check logging
 
@@ -163,4 +168,28 @@ kubectl get events --all-namespaces
 kubectl events --for pod/pod-name
 
 kubectl logs deployment deployment-name
+```
+
+### 2 app deployment
+
+```angular2html
+//open tunnel
+minikube start
+minikube tunnel
+cd /Users/avas/IdeaProjects/app-spring-boot-admin/.kube
+kubectl apply -f admin-and-micro-service.yaml -f first-micro-service.yaml
+
+kubectl get pods -o wide
+
+kubectl get svc
+
+kubectl logs pod-name
+
+kubectl describe svc admin-server-deploy
+
+http://localhost:9060
+http://localhost:9081
+
+kubectl delete -f admin-and-micro-service.yaml -f first-micro-service.yaml
+
 ```
